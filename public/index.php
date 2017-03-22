@@ -20,3 +20,4 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 require '../src/routes/services.php';
 
 $app->run();
+?>
