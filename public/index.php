@@ -18,6 +18,23 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
 //Customers routes
 require '../src/routes/services.php';
+/*
+switch ($api) {
+  case "blog":
+    switch ($service) {
+        case "posts":
+	  // api/blog/posts/
+	  require '../src/routes/services.php';
+	  break;
 
+	case "admin":
+	  // api/blog/admin/
+	  require '../src/routes/contact.php';
+	  break;
+  }
+  break;
+}
+
+*/
 $app->run();
 ?>

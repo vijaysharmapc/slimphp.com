@@ -18,9 +18,9 @@ try{
 	$db = $db->connect();
 
     $stmt = $db->query($sql);
-    $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $services = $stmt->fetchAll(PDO::FETCH_OBJ);
     $db = null;
-    echo json_encode($customers);
+    echo json_encode($services);
 
 
 
@@ -30,6 +30,80 @@ try{
 
 
 
+});
+
+
+//Get one service
+$app->get('/api/service/{id}',function(Request $request,Response $response){
+
+$id = $request->getAttribute('id');
+//echo 'services';
+$sql = "SELECT * FROM services where srv_id = $id";
+
+try{
+   //GET DB OBJECT
+	$db = new db();
+	//CONNECT
+	$db = $db->connect();
+
+    $stmt = $db->query($sql);
+    $service = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $db = null;
+    echo json_encode($service);
+
+
+
+}catch(PDOException $e){
+   echo '{"error":{"text": '.$e->getMessage().'}';
+}
+
+
+
+});
+
+
+
+//Save the message
+$app->post('/api/contact/add',function(Request $request,Response $response){
+
+$name = $request->getParam('name');
+$email = $request->getParam('email');
+$contact = $request->getParam('contact');
+$message = $request->getParam('message');
+
+
+//echo 'services';
+$sql = "INSERT INTO contact (name,email,contact,message) values (:name,:email,:contact,:message)";
+
+try{
+   //GET DB OBJECT
+	$db = new db();
+	//CONNECT
+	$db = $db->connect();
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindParam(':name',$name);
+    $stmt->bindParam(':email',$email);
+    $stmt->bindParam(':contact',$contact);
+    $stmt->bindParam(':message',$message);
+    
+    $stmt->execute();
+
+    echo '{"notice":{"text":"0"}}';
+
+}catch(PDOException $e){
+   echo '{"error":{"text": '.$e->getMessage().'}';
+}
+
+
+
 })
+
+
+
+
+
+
+
 
 ?>

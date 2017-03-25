@@ -1,7 +1,7 @@
 //Services Get
 function hk_services_get()
 {
-//	alert("123");
+	//alert("1");
     $.ajax({
         dataType: "json",
         async: false,
@@ -24,18 +24,19 @@ function hk_services_get()
 //For contact us post
 function hk_contactus_post()
 {
-    //alert(1234);
+    alert("3");
 	 $('#contcat_success').show();
     $.ajax({
         dataType: "json",
-        type: "post",
+        type: "POST",
         data: {
-            hk_message: $('#hk_message').val(),
-            hk_email: $('#hk_email').val(),
-            hk_name: $('#hk_name').val()
+            name: $('#hk_name').val(),
+            email: $('#hk_email').val(),
+            contact: $('#hk_number').val(),
+            message: $('#hk_message').val()
         },
         //url: 'http://localhost:8181/api/v1/message/create',
-        url: '/api/v1/message/create',
+        url: 'http://slimphp.com/public/index.php/api/contact/add',
         success: function(response) {
            //alert(1);
         	 $('#err-state').show();
