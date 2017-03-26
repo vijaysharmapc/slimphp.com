@@ -51,7 +51,7 @@
 <script> 
 $(document).ready(function() {
   hk_services_get();
-  hk_contactus_post();
+  //hk_contactus_post();
 });
 </script> 
 
@@ -284,17 +284,18 @@ $(document).ready(function() {
           <form class="form-main" name="ajax-form" id="ajax-form" action="#" method="post">
             <div id="ajaxsuccess">E-mail was successfully sent.</div> 
             <div class="error" id="err-name">Please enter name</div>
-            <input name="name" id="hk_name" type="text" value="Name" onfocus="if(this.value == 'Name') this.value='';" onblur="if(this.value == '') this.value='Name';">
+            <input name="name" id="name" type="text" value="Name" onfocus="if(this.value == 'Name') this.value='';" onblur="if(this.value == '') this.value='Name';">
             
             <div class="error" id="err-email">Please enter e-mail</div>
             <div class="error" id="err-emailvld">E-mail is not a valid format</div>
-            <input  name="email" id="hk_email" type="text" value="E-mail" onfocus="if(this.value == 'E-mail') this.value='';" onblur="if(this.value == '') this.value='E-mail';">
+            <input  name="email" id="email" type="text" value="E-mail" onfocus="if(this.value == 'E-mail') this.value='';" onblur="if(this.value == '') this.value='E-mail';">
 
-            <input name="number" id="hk_number" type="text" value="Contact Number" onfocus="if(this.value == 'Contact Number') this.value='';" onblur="if(this.value == '') this.value='Contact Number';">
+            <div class="error" id="err-number">Contact is not a valid format</div>
+            <input name="number" id="number" type="text" value="Contact Number" onfocus="if(this.value == 'Contact Number') this.value='';" onblur="if(this.value == '') this.value='Contact Number';">
 
 
             <div class="error" id="err-message">Please enter message</div>
-            <textarea  name="message" id="hk_message" onfocus="if(this.value == 'Message') this.value='';" onblur="if(this.value == '') this.value='Message';">Message</textarea><br>
+            <textarea  name="message" id="message" onfocus="if(this.value == 'Message') this.value='';" onblur="if(this.value == '') this.value='Message';">Message</textarea><br>
             <div>
               <div class="error" id="err-form">There was a problem validating the form please check!</div>
               <div class="error" id="err-timedout">The connection to the server timed out!</div>

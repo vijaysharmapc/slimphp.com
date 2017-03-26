@@ -133,6 +133,18 @@ jQuery(document).ready(function($) {
 			$('#err-name').fadeIn('slow'); // show the error message
 			error = true; // change the error state to true
 		}
+
+		var number = $('input#number').val(); // get the value of the input field
+		//alert(number);
+		//alert (typeof number);
+		if(number == "" || number == " " || number == "Contact Number" ) {
+			$('#err-number').fadeIn('slow'); // show the error message
+			error = true; // change the error state to true
+		}else{
+			$('#err-number').fadeOut('slow'); // show the error message
+			//error = true; // change the error state to true
+		}
+
 /*
 		var email_compare = /^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/; // Syntax to compare against input
 		var email = $('input#email').val(); // get the value of the input field
@@ -178,9 +190,10 @@ jQuery(document).ready(function($) {
 				$('#ajaxsuccess').slideDown('slow');
         $('#ajaxsuccess').delay(4000);
         $('#ajaxsuccess').fadeOut(1000);
-
+        //alert ('clear');
         $("#name").val('');
         $("#email").val('');
+        $("#number").val('');
         $("#message").val('');
 			}
 		});
