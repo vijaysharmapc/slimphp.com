@@ -81,8 +81,6 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 
-
-
 //echo 'services';
 $sql = "INSERT INTO contact (name,email,contact,message) values (:name,:email,:contact,:message)";
 

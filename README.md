@@ -1,4 +1,5 @@
 # slimphp.com
+http://slimphp.com/public/index.htm
 #list services
 http://slimphp.com/public/index.php/api/services
 #save message
